@@ -7,6 +7,8 @@ import DisplayCard from './component/DisplayCard'
 import Styled from './style'
 import Search from './component/SearchBar'
 import SearchResultCard from './component/SearchResult';
+import { Route, Switch, Link } from 'react-router-dom';
+
 
 
 class App extends React.Component {
@@ -51,10 +53,10 @@ searchSubmit = evt =>{
     this.setState({
         otherUser: res.data,
     
-    })
-    
+    }) 
   })
 }
+
   render() {
   return (
     <div className="App">
@@ -71,22 +73,42 @@ searchSubmit = evt =>{
        handleChange={this.handleChange} 
        searchSubmit={this.searchSubmit}
        />
-          {/* <img src="https://i.pinimg.com/originals/68/89/d7/6889d7b561a0072d1bc6bd7adfdcc5c5.png" className="App-logo" alt="logo" width="50"/> */}
+         
       </div>
      
       </header>
       
-      <DisplayCard myGithub={this.state.myGithub} />
+      
+      
+    
+      <Link to="/search-result">
       <h1>The search Result appear here</h1>
-      <SearchResultCard otherUser={this.state.otherUser} />
+      </Link> 
+      <Link to="follower">
       <div className="follower">
           <h1>followers</h1>
       </div>
-      <FollowersCard followers={this.state.followers} />
+      </Link>
+    <Switch>
       
+      <Route path="/search-result">
+      
+        <SearchResultCard 
+        otherUser={this.state.otherUser}
+       />
+    </Route>
+      <Route path="/follower">
+     
+        <FollowersCard followers={this.state.followers} />
+        </Route>
+        <Route exact path="/">
+       <DisplayCard myGithub={this.state.myGithub} /> 
+      </Route>
+    </Switch>    
        </Styled>
+      
     </div>
-   
+    
   );
 }
 }

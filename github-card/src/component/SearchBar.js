@@ -13,9 +13,9 @@ import SearchResultCard from './SearchResult'
                         value={props.userText}
                         onChange={props.handleChange}
                      />
-                    <button> Search </button>
+                    <button > Search </button>
+                   
                  </form>
-               
              </div>
          )
      

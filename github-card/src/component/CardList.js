@@ -1,9 +1,12 @@
 import React from 'react'
+import { NavLink} from 'react-router-dom'
 const FollowersCard = props =>{
     console.log(props)
     return (
         <div className="card">
-                    
+                <NavLink to="/">
+                    <button>Home</button>
+                </NavLink>  
                 {props.followers.map(card => (
                 <div className="card-detail" key={card.id}>
                     <div className="card-image">

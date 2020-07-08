@@ -12,6 +12,7 @@ const DisplayCard = props => {
             </div>
             <div className="user-detail" >
                 <p><span>Name:</span> {props.myGithub.name} </p>
+                <p><span>Github Id:</span> &nbsp;<a href={props.myGithub.html_url}>{props.myGithub.html_url} </a></p>
                 <p><span>Locantion:</span> {props.myGithub.location} </p>
                 <p><span>Login:</span> {props.myGithub.login} </p>
                 <p><span>Followers:</span> {props.myGithub.followers} people </p>
